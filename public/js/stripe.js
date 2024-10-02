@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { showAlert } from './alerts';
-const stripe = Stripe('sk_test_51PxUARJK4xtl0sXVLcaS7y7m0gHgXyE9VuKdeHBIGxlQYruKJDaqxPHkJsVWdYdx6R10SmtazCyulpMgNDrvWmwh00b81DQjrn')
+import axios from "axios";
+import { showAlert } from "./alerts";
+const stripe = Stripe();
 
 export const bookTour = async (tourId) => {
   try {
@@ -11,6 +11,6 @@ export const bookTour = async (tourId) => {
     const checkoutPageUrl = session.data.session.url;
     window.location.assign(checkoutPageUrl);
   } catch (error) {
-    showAlert('error', error);
+    showAlert("error", error);
   }
 };
